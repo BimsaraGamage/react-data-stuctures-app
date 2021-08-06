@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Counter from './Counter'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Lets's learn data structures</h1>
+    <Counter />
   </React.StrictMode>,
   document.getElementById('root')
 );
