@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Stacks from './Stacks';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Lets's learn data structures</h1>
+    <Stacks />
   </React.StrictMode>,
   document.getElementById('root')
 );
