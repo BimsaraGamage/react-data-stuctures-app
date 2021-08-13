@@ -10,7 +10,7 @@ export default function Stacks(){
 }
 
 function Numbers(props: any){
-    return props.numbers.map(() => <p>n</p>)
+    return props.numbers.map((n:any) => <p key={n}>{n}, </p>)
 }
 
 function IO(){
