@@ -3,14 +3,14 @@ import './Stacks.css';
 export default function Stacks(){
     return (
         <div>
-            <Numbers />
+            <Numbers numbers={[1, 2, 3, 4, 5, 6, 8]}/>
             <IO />
         </div>
     )
 }
 
-function Numbers(){
-    return <h1>[1, 2, 3, 4, 5, 6, 8]</h1>
+function Numbers(props: any){
+    return props.numbers.map(() => <p>n</p>)
 }
 
 function IO(){
