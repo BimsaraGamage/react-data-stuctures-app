@@ -4,14 +4,14 @@ import Queues from './Queues'
 import { useState } from 'react'
 
 export default function Selector(){
-    const [selection, setSelection] = useState(<Stacks />)
+    const [selection, setSelection] = useState(<Queues />)
     return (
         <div>
             <label>Please select an option: </label>
             <select onChange={(e) => onChangeFunc(e, setSelection)}>
+                <option>Queues</option>
                 <option>Stacks</option>
                 <option>Counter</option>
-                <option>Queues</option>
             </select>
             <br/>
             <br/>
