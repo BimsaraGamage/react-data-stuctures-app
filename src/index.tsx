@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Stacks from './Stacks';
+import Selector from './Selector';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Stacks />
+    <Selector />
   </React.StrictMode>,
   document.getElementById('root')
 );
