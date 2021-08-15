@@ -7,7 +7,7 @@ export default function Selector(){
     return (
         <div>
             <label>Please select an option: </label>
-            <select onChange={(e) => e.target.value==="Stacks"?setSelection(<Stacks />): e.target.value==="Counter"?setSelection(<Counter />): console.log('Invalid Selection')}>
+            <select onChange={(e) => sampleFunction(e, setSelection)}>
                 <option>Stacks</option>
                 <option>Counter</option>
             </select>
@@ -16,4 +16,8 @@ export default function Selector(){
             {selection}
         </div>
     )
+}
+
+function sampleFunction(e:any, funct:any){
+    e.target.value==="Stacks"?funct(<Stacks />): e.target.value==="Counter"?funct(<Counter />): console.log('Invalid Selection')
 }
