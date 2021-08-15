@@ -3,7 +3,7 @@ import { useState } from "react"
 export default function Queues(){
     let arr = [3, 4, 6, 8, 1, 3, 5]
     const [queue, setQueue] = useState(arr)
-    const firstElement = queue[0]
+    const [firstElement, setFirstElement] = useState(NaN)
     return (
         <div>
             {queue.map((value:number, key:number) => <p key={key}>{value}, </p>)}
@@ -15,17 +15,17 @@ export default function Queues(){
                     <button onClick={() => enqueue(queue, setQueue)}>Enqeue</button>
                 </div>
                 <div className="column"> 
-                    <p>{firstElement}</p>
-                    <button onClick={() => dequeue(queue, setQueue)}>Deqeue</button>
+                    <p>{String(firstElement)}</p>
+                    <button onClick={() => dequeue(queue, setQueue, setFirstElement)}>Deqeue</button>
                 </div>
             </div>
         </div>
     )
 }
 
-function dequeue(queue:any, setQueue:any) {
+function dequeue(queue:any, setQueue:any, setFirstElement:any) {
     let temp_arr:number[] = []
-    queue.map((value:number, key:number) => {key===0?console.log("first item removed"):temp_arr.push(value)})
+    queue.length>0?queue.map((value:number, key:number) => {key===0?setFirstElement(value):temp_arr.push(value)}):setFirstElement(NaN)
     setQueue(temp_arr)
 }
 
