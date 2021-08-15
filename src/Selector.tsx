@@ -1,5 +1,5 @@
 import Stacks from './Stacks'
-import Sample from './Sample'
+import Counter from './Counter'
 import { useState } from 'react'
 
 export default function Selector(){
@@ -7,9 +7,9 @@ export default function Selector(){
     return (
         <div>
             <label>Please select an option: </label>
-            <select onChange={(e) => e.target.value==="Stacks"?setSelection(<Stacks />): e.target.value==="Sample"?setSelection(<Sample />):console.log('Invalid Selection')}>
+            <select onChange={(e) => e.target.value==="Stacks"?setSelection(<Stacks />): e.target.value==="Counter"?setSelection(<Counter />): console.log('Invalid Selection')}>
                 <option>Stacks</option>
-                <option>Sample</option>
+                <option>Counter</option>
             </select>
             <br/>
             <br/>
