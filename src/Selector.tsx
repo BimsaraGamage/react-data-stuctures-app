@@ -21,5 +21,8 @@ export default function Selector(){
 }
 
 function onChangeFunc(e:any, funct:any){
-    e.target.value==='Stacks'?funct(<Stacks />): e.target.value==='Counter'?funct(<Counter />): e.target.value==='Queues'?funct(<Queues />):console.log('Invalid Selection')
+    e.target.value==='Stacks'?funct(<Stacks />): 
+    e.target.value==='Counter'?funct(<Counter />): 
+    e.target.value==='Queues'?funct(<Queues />):
+    console.log('Invalid Selection')
 }
