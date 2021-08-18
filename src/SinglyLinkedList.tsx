@@ -27,7 +27,7 @@ class node {
     constructor(value:number, previous_node:node);
     constructor(...my_arr:any[]) {
         this.value = my_arr[0]
-        this.pntr = Math.floor(Math.random()*10000)
+        this.pntr = new system().generateMemoryAddr()
         if(my_arr.length===2){
             my_arr[1].nextPntr = this.pntr
         }
@@ -36,6 +36,15 @@ class node {
     pntr = NaN
     value = NaN
     nextPntr = NaN
+}
+
+class system {
+    utilizedLocations:number[] = []
+    generateMemoryAddr = () => {
+        let addr = Math.floor(Math.random()*10000)
+        this.utilizedLocations.forEach((value:number) => addr===value?this.generateMemoryAddr:{})
+        return addr
+    }
 }
 
 let linkedlist1 = new LinkedList([35, 6, 2, 9, 345, 1, 3, 0, 9])
