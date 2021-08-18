@@ -12,13 +12,31 @@ class LinkedList {
     constructor(array:number[]);
     constructor(...my_arr:any[]){
         if(my_arr.length===1){
-            my_arr[0].map((value:number, key:number) => {key===0?this.list.push(new node(my_arr[0][key])):this.list.push(new node(my_arr[0][key], this.list[key-1]))})
+            my_arr[0].map((value:number, key:number) => {
+                if(key===0){
+                    this.list.push(new node(my_arr[0][key]))
+                }
+                else {
+                    this.list.push(new node(my_arr[0][key], this.list[key-1]))
+                }
+            })
         }
     }
+
     list:node[] = []
+    starting_node:node = this.list[0]
 
     push = (value:number) => {
         this.list.length===0?this.list.push(new node(value)):this.list.push(new node(value, this.list[this.list.length - 1]))
+    }
+
+    search = (val:number):boolean => {
+        this.list.forEach((value:node) => {
+            if(val === value.value){
+                return true
+            }
+        })
+        return false
     }
 }
 
