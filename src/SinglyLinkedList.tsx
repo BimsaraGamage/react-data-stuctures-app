@@ -45,6 +45,13 @@ class system {
         this.utilizedLocations.forEach((value:number) => addr===value?this.generateMemoryAddr:{})
         return addr
     }
+    pickNode = (pointer:number, list:LinkedList) => {
+        list.list.forEach((value:node) => {
+            if(pointer===value.pntr){
+                return value
+            }
+        })
+    }
 }
 
 let linkedlist1 = new LinkedList([35, 6, 2, 9, 345, 1, 3, 0, 9])
