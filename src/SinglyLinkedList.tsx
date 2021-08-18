@@ -7,6 +7,21 @@ class SinglyLinkedList extends React.Component{
 
 }
 
+class LinkedList {
+    constructor();
+    constructor(array:number[]);
+    constructor(...my_arr:any[]){
+        if(my_arr.length===1){
+            my_arr[0].map((value:number, key:number) => {key===0?this.list.push(new node(my_arr[0][key])):this.list.push(new node(my_arr[0][key], this.list[key-1]))})
+        }
+    }
+    list:node[] = []
+
+    push = (value:number) => {
+        this.list.length===0?this.list.push(new node(value)):this.list.push(new node(value, this.list[this.list.length - 1]))
+    }
+}
+
 class node {
     constructor(value:number);
     constructor(value:number, previous_node:node);
@@ -21,14 +36,14 @@ class node {
     pntr = NaN
     value = NaN
     nextPntr = NaN
-
-    displayValues = () => {console.log('value: ' + this.value + ', pointer: ' + this.pntr + ', next pointer: ' + this.nextPntr)}
 }
 
-let arr = [35, 6, 2, 9, 345, 1, 3, 0, 9]
-let obj_arr:node[] = []
-arr.map((value:number, key:number) => {key===0?obj_arr.push(new node(value)):obj_arr.push(new node(value, obj_arr[key-1]))})
-obj_arr.length===0?obj_arr.push(new node(78)):obj_arr.push(new node(78,obj_arr[obj_arr.length-1]))
-console.log(obj_arr)
+let linkedlist1 = new LinkedList([35, 6, 2, 9, 345, 1, 3, 0, 9])
+linkedlist1.push(980)
+console.log(linkedlist1.list)
+
+let linkedlist2 = new LinkedList()
+linkedlist2.push(765)
+console.log(linkedlist2.list)
 
 export default SinglyLinkedList;
