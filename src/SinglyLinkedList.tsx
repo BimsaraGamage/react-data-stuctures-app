@@ -22,12 +22,13 @@ class node {
     value = NaN
     nextPntr = NaN
 
-    displayValues = () => {console.log("value: " + this.value + ", pointer: " + this.pntr + ", next pointer: " + this.nextPntr)}
+    displayValues = () => {console.log('value: ' + this.value + ', pointer: ' + this.pntr + ', next pointer: ' + this.nextPntr)}
 }
 
 let arr = [35, 6, 2, 9, 345, 1, 3, 0, 9]
 let obj_arr:node[] = []
 arr.map((value:number, key:number) => {key===0?obj_arr.push(new node(value)):obj_arr.push(new node(value, obj_arr[key-1]))})
+obj_arr.length===0?obj_arr.push(new node(78)):obj_arr.push(new node(78,obj_arr[obj_arr.length-1]))
 console.log(obj_arr)
 
 export default SinglyLinkedList;
