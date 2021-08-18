@@ -25,7 +25,7 @@ export default function Queues(){
 
 function dequeue(queue:any, setQueue:any, setFirstElement:any) {
     let temp_arr:number[] = []
-    queue.length>0?queue.map((value:number, key:number) => {key===0?setFirstElement(value):temp_arr.push(value)}):setFirstElement(NaN)
+    queue.length>0?queue.map((value:number, key:number) => (key===0?setFirstElement(value):temp_arr.push(value))):setFirstElement(NaN)
     setQueue(temp_arr)
 }
 
