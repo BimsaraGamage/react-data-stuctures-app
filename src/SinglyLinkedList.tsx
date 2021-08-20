@@ -24,18 +24,27 @@ class LinkedList {
     }
 
     list:node[] = []
-    starting_node:node = this.list[0]
 
     push = (value:number) => {
         this.list.length===0?this.list.push(new node(value)):this.list.push(new node(value, this.list[this.list.length - 1]))
     }
 
     search = (val:number):boolean => {
-        this.list.forEach((value:node) => {
-            if(val === value.value){
-                return true
+        if(this.list[0].value===val){
+            return true
+        }
+        else{
+            let nextPtr:number = this.list[0].nextPntr
+            while(!isNaN(nextPtr)){
+                let nextNode = new system().pickNode(nextPtr, this)
+                if(nextNode.value === val){
+                    return true
+                }
+                else{
+                    nextPtr = nextNode.nextPntr
+                }
             }
-        })
+        }
         return false
     }
 }
@@ -63,12 +72,12 @@ class system {
         this.utilizedLocations.forEach((value:number) => addr===value?this.generateMemoryAddr:{})
         return addr
     }
-    pickNode = (pointer:number, list:LinkedList) => {
-        list.list.forEach((value:node) => {
-            if(pointer===value.pntr){
-                return value
+    pickNode = (pointer:number, list:LinkedList):any=> {
+        for(let i=0; i<list.list.length; i++){
+            if(pointer===list.list[i].pntr){
+                return list.list[i]
             }
-        })
+        }
     }
 }
 
@@ -79,5 +88,7 @@ console.log(linkedlist1.list)
 let linkedlist2 = new LinkedList()
 linkedlist2.push(765)
 console.log(linkedlist2.list)
+
+console.log(linkedlist1.search(56))
 
 export default SinglyLinkedList;
